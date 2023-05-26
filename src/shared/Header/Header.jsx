@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import Nav from "../Nav/Nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,8 +6,12 @@ import { faAnchor, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/img/logo-dark.png";
 import shapeCurve from "../../assets/img/bg-curve.png";
 import { Link, useNavigate } from "react-router-dom";
+import avatar from "../../assets/img/Avatar.png";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handledLoginBtn = () => navigate("/login");
@@ -58,29 +62,43 @@ const Header = () => {
           </ul>
         </div>
 
-        <div
-          className="text-right"
-          onClick={() => setLoginToggle(!loginToggle)}
-        >
-          {loginToggle ? (
-            <button
-              onClick={handledLoginBtn}
-              className="relative w-[150px] inline-flex items-center justify-center p-0.5  overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
-            >
-              <span className="relative w-full text-xl font-semibold md:px-8 px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                Login
-              </span>
-            </button>
-          ) : (
-            <Link to={"/signup"}>
-              <button className="relative w-[150px] inline-flex items-center justify-center p-0.5  overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+        {!user ? (
+          <div
+            className="text-right"
+            onClick={() => setLoginToggle(!loginToggle)}
+          >
+            {loginToggle ? (
+              <button
+                onClick={handledLoginBtn}
+                className="relative w-[150px] inline-flex items-center justify-center p-0.5  overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800"
+              >
                 <span className="relative w-full text-xl font-semibold md:px-8 px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                  Sign up
+                  Login
                 </span>
               </button>
-            </Link>
-          )}
-        </div>
+            ) : (
+              <Link to={"/signup"}>
+                <button className="relative w-[150px] inline-flex items-center justify-center p-0.5  overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                  <span className="relative w-full text-xl font-semibold md:px-8 px-5 py-2 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                    Sign up
+                  </span>
+                </button>
+              </Link>
+            )}
+          </div>
+        ) : (
+          <div className="w-[75px] rounded-full">
+            {user?.photoURL ? (
+              <img
+                className="w-full rounded-full"
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <img className="w-full" src={avatar} alt="" />
+            )}
+          </div>
+        )}
       </nav>
       <div className="shape-top absolute z-[2]">
         <img src={shapeCurve} alt="" />
