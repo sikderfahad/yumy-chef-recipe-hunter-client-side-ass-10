@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const Register = () => {
-  const { user } = useContext(AuthContext);
+  const { user, userProfile, createUser } = useContext(AuthContext);
 
   const [show, setShow] = useState(false);
 
@@ -16,13 +16,20 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+
+    createUser(email, password)
+      .then((res) => {
+        const createUser = res.user;
+        console.log(createUser);
+      })
+      .catch((error) => console.log(error.message));
   };
 
   return (
     <div className="py-[200px] bg-black">
       <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7  top-[100px] ">
         <h1 className="text-center text-5xl font-bold text-white">
-          Create {user} Yumy Account{" "}
+          Create Yumy Account{" "}
         </h1>
 
         <div>
