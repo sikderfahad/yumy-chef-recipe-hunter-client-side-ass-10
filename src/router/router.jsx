@@ -5,6 +5,7 @@ import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Root from "../layout/Root/Root";
 import AnimatedBackground from "../components/AnimatedBackground/AnimatedBackground";
 import Register from "../pages/Register/Register";
+import TestPage from "../pages/TestPage/TestPage";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/exp",
-        element: <AnimatedBackground></AnimatedBackground>,
+        element: <TestPage></TestPage>,
       },
       {
         path: "*",

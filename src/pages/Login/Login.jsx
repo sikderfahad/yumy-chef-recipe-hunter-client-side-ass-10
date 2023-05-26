@@ -1,17 +1,29 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { BsGithub } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMailOutline, MdOutlineMarkEmailRead } from "react-icons/md";
 import googleIcon from "../../assets/img/google-icon.png";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { user, googleUser, gitHubUser, loginUser } = useContext(AuthContext);
+
   const [login, setLogin] = useState(false);
   const [show, setShow] = useState(false);
 
   const loginToggle = () => {
     setLogin(!login);
+  };
+
+  const googleSignIn = () => {
+    googleUser()
+      .then((res) => {
+        const signUser = res.user;
+        console.log(signUser);
+      })
+      .catch((error) => console.log(error.message));
   };
 
   return (
@@ -30,7 +42,10 @@ const Login = () => {
               </span>
             </button>
 
-            <button className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-pink-600 to-orange-500 group-hover:from-pink-600 group-hover:to-orange-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-pink-300 dark:focus:ring-orange-800">
+            <button
+              onClick={googleSignIn}
+              className="relative w-full flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-lg font-medium text-white rounded-lg group bg-gradient-to-br from-pink-600 to-orange-500 group-hover:from-pink-600 group-hover:to-orange-500 dark:text-white focus:ring-2 focus:outline-none focus:ring-pink-300 dark:focus:ring-orange-800"
+            >
               <span className="flex w-full items-center justify-center gap-4 relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 dark:bg-gray-900 rounded-md group-hover:bg-black">
                 <img className="w-[30px]" src={googleIcon} alt="" />
                 Countinue With Google

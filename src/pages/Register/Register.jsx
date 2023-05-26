@@ -20,6 +20,14 @@ const Register = () => {
     createUser(email, password)
       .then((res) => {
         const createUser = res.user;
+
+        userProfile(createUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {})
+          .catch((error) => console.log(error.message));
+
         console.log(createUser);
       })
       .catch((error) => console.log(error.message));
