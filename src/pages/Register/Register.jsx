@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const Register = () => {
+  const { user } = useContext(AuthContext);
+
   const [show, setShow] = useState(false);
 
   const handledSignup = (event) => {
@@ -19,7 +22,7 @@ const Register = () => {
     <div className="py-[200px] bg-black">
       <div className="md:w-4/12 w-10/12 mx-auto flex flex-col gap-7  top-[100px] ">
         <h1 className="text-center text-5xl font-bold text-white">
-          Create Your Yumy Account{" "}
+          Create {user} Yumy Account{" "}
         </h1>
 
         <div>
