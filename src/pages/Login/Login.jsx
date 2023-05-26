@@ -17,6 +17,20 @@ const Login = () => {
     setLogin(!login);
   };
 
+  const handledLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    loginUser(email, password)
+      .then((res) => {
+        const signedUser = res.user;
+        console.log(signedUser);
+      })
+      .catch((error) => console.log(error.message));
+  };
+
   // Google pop up
   const googleSignIn = () => {
     googleUser()
@@ -77,7 +91,11 @@ const Login = () => {
 
         {login && (
           <div className="w-100% w-[320px] mx-auto">
-            <form className="flex flex-col gap-4" action="">
+            <form
+              onSubmit={handledLogin}
+              className="flex flex-col gap-4"
+              action=""
+            >
               <div className="flex items-center max-w-[320px] login-box">
                 <input
                   className="w-full p-3 rounded-lg bg-transparent text-white "
