@@ -7,6 +7,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { TiWarningOutline } from "react-icons/ti";
+import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Login = () => {
   const { user, googleUser, gitHubUser, loginUser } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const Login = () => {
     loginUser(email, password)
       .then((res) => {
         const signedUser = res.user;
+
+        ToastMsgSuc("Your login successful!");
+
         console.log(signedUser);
         setSuccess("You login successful!");
         navigate(from ? from : "/");
@@ -48,9 +52,11 @@ const Login = () => {
         const passMissing = error.message.includes("missing-password");
         passMissing &&
           setError("Password is missing! Please enter a valid Password");
+        ToastMsgError("Password is missing!");
 
         const userNotFound = error.message.includes("user-not-found");
         userNotFound && setError("User not found! Please enter a valid Email");
+        ToastMsgSuc("Your login successful!");
       });
   };
 
@@ -60,6 +66,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        ToastMsgSuc("Login by Google successful!");
         navigate(from ? from : "/");
       })
       .catch((error) => console.log(error.message));
@@ -71,6 +78,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        ToastMsgSuc("Login by Github successful!");
         navigate(from ? from : "/");
       })
       .catch((error) => console.log(error.message));

@@ -5,6 +5,7 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill } from "react-icons/bs";
+import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const Register = () => {
   const { user, userProfile, createUser } = useContext(AuthContext);
@@ -38,6 +39,7 @@ const Register = () => {
         })
           .then(() => {
             setSuccess("You successfuly create an account!");
+            ToastMsgSuc("Signup successful!");
             navigate(from ? from : "/");
           })
           .catch((error) => console.log(error.message));

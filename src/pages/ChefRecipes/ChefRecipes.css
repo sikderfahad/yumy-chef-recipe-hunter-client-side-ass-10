@@ -1,0 +1,11 @@
+.recipe-title {
+  text-align: center;
+  font-size: 40px;
+  margin: 40px 0;
+  border-bottom: 1px solid;
+  padding-bottom: 20px;
+  width: fit-content;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}

@@ -1,8 +1,20 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
+import { FcLike } from "react-icons/fc";
+import { GiCook } from "react-icons/gi";
+import { FaAward, FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
+import { MdFavoriteBorder } from "react-icons/md";
+import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
 
 const ChefRecipes = () => {
   const chefInfo = useLoaderData();
+  const [like, setLike] = useState(false);
+
+  const addToFavourite = () => {
+    setLike(!like);
+    !like && ToastMsgSuc("This Chef added to your Favourite list!");
+  };
 
   const {
     ChefPicture,
@@ -37,34 +49,22 @@ const ChefRecipes = () => {
                 {ChefName}
               </h2>
               <p className="mt-2 text-gray-500">{Bio}</p>
-              <div className="mt-4 flex items-center">
-                <svg
-                  className="w-6 h-6 fill-current text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 4a8 8 0 0 0-8 8c0 4.42 3.58 8 8 8s8-3.58 8-8a8 8 0 0 0-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.55.59-3.1 1.76-4.24l7.07 7.07c-.27.37-.59.71-.98 1.1a5.928 5.928 0 0 1-4.85 2.07zm-4.93-4.93a5.928 5.928 0 0 1 4.85-2.07c1.83 0 3.44.82 4.54 2.07l-7.07 7.07c-1.14-1.17-1.76-2.72-1.76-4.24 0-1.55.59-3.1 1.76-4.24zm7.07-7.07l-7.07 7.07c.27-.37.59-.71.98-1.1a5.928 5.928 0 0 1 4.85-2.07c3.31 0 6 2.69 6 6 0 1.55-.59 3.1-1.76 4.24z" />
-                </svg>
+              <div title="likes" className="mt-4 w-fit flex items-center">
+                <FcLike className="text-xl"></FcLike>
                 <span className="ml-2 text-gray-700">{Likes}</span>
               </div>
-              <div className="mt-4 flex items-center">
-                <svg
-                  className="w-6 h-6 fill-current text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 14l9-5-9-5-9 5 9 5zm0 0l9-5-9-5-9 5 9 5zm0 0v7l9-5-9-2zm0 7V7L3 12l9 5z" />
-                </svg>
+              <div
+                title="Number of Recipes"
+                className="mt-4 flex w-fit items-center"
+              >
+                <GiCook className="text-xl"></GiCook>
                 <span className="ml-2 text-gray-700">{NumberOfRecipes}</span>
               </div>
-              <div className="mt-4 flex items-center">
-                <svg
-                  className="w-6 h-6 fill-current text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-                </svg>
+              <div
+                title="Years of Experience"
+                className="mt-4 flex w-fit items-center"
+              >
+                <FaAward className="text-xl text-rose-500"></FaAward>
                 <span className="ml-2 text-gray-700">
                   {YearsOfExperience} years of experience
                 </span>
@@ -73,7 +73,7 @@ const ChefRecipes = () => {
           </div>
 
           <div className="mt-4 mx-auto">
-            <h3 className="text-lg leading-6 font-medium text-gray-900">
+            <h3 className="text-lg recipe-title leading-6 font-medium text-gray-900">
               Recipes
             </h3>
             <table className="w-full mt-2">
@@ -95,13 +95,51 @@ const ChefRecipes = () => {
                     <td className="py-2 px-4 border-b">
                       {recipe.CookingMethod}
                     </td>
-                    <td className="py-2 px-4 border-b">{recipe.Rating}</td>
+                    <td className="py-2 px-4 border-b">
+                      <Rating
+                        className="fs-5"
+                        placeholderRating={recipe.Rating}
+                        emptySymbol={
+                          <FaRegStar style={{ color: "#FF8C47" }}></FaRegStar>
+                        }
+                        placeholderSymbol={
+                          <FaStar style={{ color: "#FF8C47" }}></FaStar>
+                        }
+                        fullSymbol={
+                          <FaStar style={{ color: "#FF8C47" }}></FaStar>
+                        }
+                        readonly
+                      />
+                      {recipe.Rating}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+          <div className="text-right">
+            <button
+              onClick={addToFavourite}
+              className="mt-4 flex items-center gap-2"
+            >
+              Favourite
+              <MdFavoriteBorder
+                className={`text-5xl font-thin duration-500 ${
+                  like
+                    ? "text-rose-500  rotate-[360deg] scale-125"
+                    : "text-gray-500"
+                }`}
+              ></MdFavoriteBorder>
+            </button>
+          </div>
         </div>
+      </div>
+      <div className="text-center mt-10">
+        <Link to={"/"}>
+          <button className="text-[#3291ff] text-xl btn-other-signup-option w-fit mx-auto ">
+            ← Go back
+          </button>
+        </Link>
       </div>
     </div>
   );
