@@ -4,7 +4,7 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Root from "../layout/Root/Root";
 import AnimatedBackground from "../components/AnimatedBackground/AnimatedBackground";
-import LoginOption from "../pages/LoginOption/LoginOption";
+import Register from "../pages/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
-        path: "/login-option",
-        element: <LoginOption></LoginOption>,
+        path: "/signup",
+        element: <Register></Register>,
       },
       {
         path: "/exp",
