@@ -1,0 +1,349 @@
+[
+  {
+    "id": 1,
+    "ChefPicture": "https://img.freepik.com/free-photo/happy-young-cook-uniform-holding-salad_171337-5342.jpg?w=996&t=st=1685107080~exp=1685107680~hmac=2a47add9989a863687f917dbc5d0ef20cc57fd463b70506aa499d5f589138ad3",
+    "ChefName": "Emily Johnson",
+    "Bio": "Emily Johnson is a skilled chef with 10 years of experience specializing in Japanese Cuisine. She has created 154 delicious recipes loved by many. Emily's expertise lies in making sushi rolls, tempura, miso soup, and ramen noodles.",
+    "YearsOfExperience": 10,
+    "NumberOfRecipes": 154,
+    "Likes": 1200,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Sushi Rolls",
+        "Ingredients": [
+          "Sushi rice",
+          "Nori seaweed",
+          "Fresh fish",
+          "Cucumber",
+          "Avocado"
+        ],
+        "CookingMethod": "1. Prepare sushi rice. 2. Place nori on a bamboo mat. 3. Spread rice on the nori. 4. Add fish, cucumber, and avocado. 5. Roll tightly. 6. Slice and serve.",
+        "Rating": 4.5
+      },
+      {
+        "RecipeName": "Tempura",
+        "Ingredients": [
+          "Shrimp",
+          "Vegetables (e.g., sweet potato, zucchini)",
+          "Tempura batter mix",
+          "Vegetable oil",
+          "Dipping sauce"
+        ],
+        "CookingMethod": "1. Prepare the dipping sauce. 2. Heat vegetable oil for deep-frying. 3. Dip shrimp and vegetables in tempura batter. 4. Fry until golden brown. 5. Serve with dipping sauce.",
+        "Rating": 4.2
+      },
+      {
+        "RecipeName": "Miso Soup",
+        "Ingredients": [
+          "Dashi stock",
+          "Miso paste",
+          "Tofu",
+          "Green onions",
+          "Seaweed"
+        ],
+        "CookingMethod": "1. Bring dashi stock to a boil. 2. Add miso paste and stir. 3. Add tofu and simmer. 4. Garnish with green onions and seaweed. 5. Serve hot.",
+        "Rating": 4.7
+      },
+      {
+        "RecipeName": "Ramen Noodles",
+        "Ingredients": [
+          "Ramen noodles",
+          "Broth (e.g., pork, chicken)",
+          "Chashu (braised pork)",
+          "Soft-boiled egg",
+          "Green onions"
+        ],
+        "CookingMethod": "1. Cook ramen noodles according to package instructions. 2. Heat the broth. 3. Add noodles, chashu, soft-boiled egg, and green onions. 4. Serve hot.",
+        "Rating": 4.4
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "ChefPicture": "https://img.freepik.com/free-photo/female-chef-holding-wooden-spoon-whisk-rolling-pin-white-uniform-looking-cheery_176474-12639.jpg?w=996&t=st=1685097312~exp=1685097912~hmac=63da4c3ea6d5e743eeb76fd3df21d6cc83f19b3cf496da775f6c9fb85afca0fd",
+    "ChefName": "Michael Patel",
+    "Bio": "Michael Patel is an experienced chef with 8 years in the culinary industry, specializing in Japanese Cuisine. He has developed 84 unique recipes loved by his customers. Michael's specialties include teriyaki chicken, gyoza, yakitori, and matcha green tea ice cream.",
+    "YearsOfExperience": 8,
+    "NumberOfRecipes": 84,
+    "Likes": 900,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Teriyaki Chicken",
+        "Ingredients": [
+          "Chicken thighs",
+          "Soy sauce",
+          "Mirin",
+          "Sugar",
+          "Garlic"
+        ],
+        "CookingMethod": "1. Mix soy sauce, mirin, sugar, and garlic. 2. Marinate chicken in the sauce. 3. Grill or pan-fry until cooked. 4. Serve with sauce.",
+        "Rating": 4.6
+      },
+      {
+        "RecipeName": "Gyoza",
+        "Ingredients": [
+          "Ground pork",
+          "Cabbage",
+          "Garlic",
+          "Ginger",
+          "Gyoza wrappers"
+        ],
+        "CookingMethod": "1. Prepare filling by mixing ground pork, cabbage, garlic, and ginger. 2. Fill gyoza wrappers with the filling. 3. Fold and seal. 4. Pan-fry until golden brown. 5. Serve with dipping sauce.",
+        "Rating": 4.3
+      },
+      {
+        "RecipeName": "Yakitori",
+        "Ingredients": [
+          "Chicken skewers",
+          "Soy sauce",
+          "Sake",
+          "Mirin",
+          "Sugar"
+        ],
+        "CookingMethod": "1. Marinate chicken skewers in a mixture of soy sauce, sake, mirin, and sugar. 2. Grill the skewers until cooked. 3. Serve hot.",
+        "Rating": 4.8
+      },
+      {
+        "RecipeName": "Matcha Green Tea Ice Cream",
+        "Ingredients": [
+          "Matcha powder",
+          "Milk",
+          "Heavy cream",
+          "Sugar",
+          "Egg yolks"
+        ],
+        "CookingMethod": "1. Whisk matcha powder with a small amount of hot water. 2. Heat milk, heavy cream, and sugar. 3. Mix matcha mixture with egg yolks. 4. Combine all ingredients and cook until thickened. 5. Chill and churn in an ice cream maker. 6. Freeze and serve.",
+        "Rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "ChefPicture": "https://img.freepik.com/free-photo/portrait-handsome-bearded-man-chief-cook-holding-saucepan-make-okay-sign_496169-87.jpg?w=996&t=st=1685097361~exp=1685097961~hmac=5d0262aa0a952997a44e2ae45689ea76d1b66715da8b0dfbe295307d7e61b2db",
+    "ChefName": "Sophia Nguyen",
+    "Bio": "Sophia Nguyen is a talented chef with 5 years of experience specializing in Japanese Cuisine. She has curated 64 delectable recipes loved by her patrons. Sophia excels in preparing tonkatsu, okonomiyaki, soba noodles, and matcha latte.",
+    "YearsOfExperience": 5,
+    "NumberOfRecipes": 64,
+    "Likes": 600,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Tonkatsu",
+        "Ingredients": [
+          "Pork cutlets",
+          "Panko breadcrumbs",
+          "Flour",
+          "Egg",
+          "Cabbage"
+        ],
+        "CookingMethod": "1. Coat pork cutlets in flour, dip in beaten egg, and coat with panko breadcrumbs. 2. Deep-fry until golden brown. 3. Serve with cabbage and tonkatsu sauce.",
+        "Rating": 4.4
+      },
+      {
+        "RecipeName": "Okonomiyaki",
+        "Ingredients": ["Cabbage", "Flour", "Egg", "Pork belly", "Scallions"],
+        "CookingMethod": "1. Mix shredded cabbage, flour, egg, and other desired ingredients. 2. Cook the mixture on a griddle. 3. Top with pork belly and scallions. 4. Flip and cook until golden brown. 5. Serve with okonomiyaki sauce and mayonnaise.",
+        "Rating": 4.2
+      },
+      {
+        "RecipeName": "Soba Noodles",
+        "Ingredients": [
+          "Soba noodles",
+          "Soba dipping sauce",
+          "Tempura flakes",
+          "Green onions",
+          "Wasabi"
+        ],
+        "CookingMethod": "1. Cook soba noodles according to package instructions. 2. Drain and rinse with cold water. 3. Serve with soba dipping sauce. 4. Garnish with tempura flakes, green onions, and wasabi.",
+        "Rating": 4.6
+      },
+      {
+        "RecipeName": "Chawanmushi",
+        "Ingredients": [
+          "Eggs",
+          "Dashi stock",
+          "Soy sauce",
+          "Mirin",
+          "Shiitake mushrooms"
+        ],
+        "CookingMethod": "1. Whisk eggs, dashi stock, soy sauce, and mirin together. 2. Strain the mixture. 3. Add sliced shiitake mushrooms. 4. Steam until set. 5. Serve hot.",
+        "Rating": 4.5
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "ChefPicture": "https://img.freepik.com/free-photo/young-african-american-female-posing-yellow_181624-52051.jpg?w=996&t=st=1685097411~exp=1685098011~hmac=86f5dabc03d40e7ec02d79005f57bab7dee291825545bbdf6ab96092d47ed969",
+    "ChefName": "Daniel Lee",
+    "Bio": "Daniel Lee is a seasoned chef with 12 years of experience specializing in Japanese Cuisine. With a repertoire of 204 delightful recipes, Daniel has earned the love of 1500 followers. His expertise lies in preparing sashimi, unagi don, shabu-shabu, and yaki onigiri.",
+    "YearsOfExperience": 12,
+    "NumberOfRecipes": 204,
+    "Likes": 1500,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Sashimi",
+        "Ingredients": [
+          "Fresh fish (e.g., tuna, salmon)",
+          "Wasabi",
+          "Soy sauce",
+          "Pickled ginger",
+          "Seaweed"
+        ],
+        "CookingMethod": "1. Slice fresh fish into thin pieces. 2. Serve with wasabi, soy sauce, pickled ginger, and seaweed.",
+        "Rating": 4.8
+      },
+      {
+        "RecipeName": "Unagi Don",
+        "Ingredients": [
+          "Grilled eel",
+          "Rice",
+          "Unagi sauce",
+          "Nori seaweed",
+          "Scrambled eggs"
+        ],
+        "CookingMethod": "1. Grill eel and glaze with unagi sauce. 2. Place eel on a bed of rice. 3. Garnish with nori seaweed and scrambled eggs. 4. Serve hot.",
+        "Rating": 4.7
+      },
+      {
+        "RecipeName": "Shabu-Shabu",
+        "Ingredients": [
+          "Thinly sliced beef",
+          "Assorted vegetables (e.g., napa cabbage, mushrooms)",
+          "Dipping sauces",
+          "Sesame sauce",
+          "Ponzu sauce"
+        ],
+        "CookingMethod": "1. Prepare boiling water or broth in a pot. 2. Dip beef and vegetables into the boiling liquid briefly. 3. Serve with dipping sauces.",
+        "Rating": 4.5
+      },
+      {
+        "RecipeName": "Yaki Onigiri",
+        "Ingredients": [
+          "Cooked rice",
+          "Seaweed",
+          "Soy sauce",
+          "Grilled salmon flakes",
+          "Sesame seeds"
+        ],
+        "CookingMethod": "1. Shape cooked rice into triangular or round patties. 2. Grill or pan-fry until crispy. 3. Brush with soy sauce. 4. Top with grilled salmon flakes and sesame seeds. 5. Wrap with seaweed (optional).",
+        "Rating": 4.3
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "ChefPicture": "https://img.freepik.com/free-photo/professional-male-chef-cook-white-uniform-cook-hat-holding-wooden-spoon-looking-confident-standing-white-background_141793-21018.jpg?w=996&t=st=1685097452~exp=1685098052~hmac=fc122c3ac0c5b80d6068a89e367c24992c543b4dd84fc07b68b4e60bc4ce9666",
+    "ChefName": "Isabella Rodriguez",
+    "Bio": "Linda Hernandez is a passionate chef with 7 years of experience specializing in Japanese Cuisine. Her collection of 92 remarkable recipes has garnered 800 likes from food enthusiasts. Linda's specialties include gyudon, nikujaga, and mochi ice cream.",
+    "YearsOfExperience": 6,
+    "NumberOfRecipes": 104,
+    "Likes": 800,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Takoyaki",
+        "Ingredients": [
+          "Octopus",
+          "Flour",
+          "Egg",
+          "Dashi stock",
+          "Green onions"
+        ],
+        "CookingMethod": "1. Mix flour, egg, and dashi stock. 2. Pour the mixture into a takoyaki pan. 3. Add octopus and green onions. 4. Cook until golden brown. 5. Serve with takoyaki sauce and mayonnaise.",
+        "Rating": 4.4
+      },
+      {
+        "RecipeName": "Gyudon",
+        "Ingredients": [
+          "Thinly sliced beef",
+          "Onions",
+          "Soy sauce",
+          "Mirin",
+          "Rice"
+        ],
+        "CookingMethod": "1. Sauté onions and beef in a pan. 2. Add soy sauce and mirin. 3. Simmer until the beef is cooked. 4. Serve over a bowl of rice.",
+        "Rating": 4.6
+      },
+      {
+        "RecipeName": "Nikujaga",
+        "Ingredients": [
+          "Thinly sliced beef",
+          "Potatoes",
+          "Carrots",
+          "Onions",
+          "Soy sauce"
+        ],
+        "CookingMethod": "1. Brown beef in a pot. 2. Add potatoes, carrots, onions, and soy sauce. 3. Simmer until the vegetables are tender. 4. Serve hot.",
+        "Rating": 4.3
+      },
+      {
+        "RecipeName": "Mochi Ice Cream",
+        "Ingredients": [
+          "Mochi rice cakes",
+          "Ice cream (e.g., green tea, red bean)",
+          "Cornstarch"
+        ],
+        "CookingMethod": "1. Flatten mochi rice cakes and dust with cornstarch. 2. Place a scoop of ice cream on each mochi. 3. Wrap and seal the mochi around the ice cream. 4. Freeze until firm. 5. Serve chilled.",
+        "Rating": 4.7
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "ChefPicture": "https://img.freepik.com/free-photo/young-beautiful-woman-wearing-professional-cook-uniform-hat-cheerful-with-smile-face-pointing-with-hand-finger-up-side-with-happy-natural-expression-face_839833-7969.jpg?w=996&t=st=1685097523~exp=1685098123~hmac=546286d90999bc34624d5f51406ddf07a2ed5e80ff5522c315885ef1ed305f03",
+    "ChefName": "Oliver Schmidt",
+    "Bio": "Oliver Schmidt is an accomplished chef with 15 years of experience specializing in Japanese Cuisine. With an impressive collection of 254 recipes, Oliver has gained the admiration of 1800 followers. His expertise lies in preparing ramen, okonomiyaki, tofu teriyaki, and green tea cheesecake.",
+    "YearsOfExperience": 15,
+    "NumberOfRecipes": 254,
+    "Likes": 1800,
+    "Specialty": "Japanese Cuisine",
+    "Recipes": [
+      {
+        "RecipeName": "Ramen",
+        "Ingredients": [
+          "Ramen noodles",
+          "Broth (e.g., pork, chicken)",
+          "Chashu (braised pork)",
+          "Soft-boiled egg",
+          "Green onions"
+        ],
+        "CookingMethod": "1. Cook ramen noodles according to package instructions. 2. Heat the broth. 3. Add noodles, chashu, soft-boiled egg, and green onions. 4. Serve hot.",
+        "Rating": 4.5
+      },
+      {
+        "RecipeName": "Okonomiyaki",
+        "Ingredients": ["Cabbage", "Flour", "Egg", "Pork belly", "Scallions"],
+        "CookingMethod": "1. Mix shredded cabbage, flour, egg, and other desired ingredients. 2. Cook the mixture on a griddle. 3. Top with pork belly and scallions. 4. Flip and cook until golden brown. 5. Serve with okonomiyaki sauce and mayonnaise.",
+        "Rating": 4.2
+      },
+      {
+        "RecipeName": "Tofu Teriyaki",
+        "Ingredients": [
+          "Firm tofu",
+          "Teriyaki sauce",
+          "Vegetable oil",
+          "Sesame seeds",
+          "Green onions"
+        ],
+        "CookingMethod": "1. Drain tofu and pat dry. 2. Cut tofu into slices or cubes. 3. Pan-fry tofu in vegetable oil until golden. 4. Pour teriyaki sauce over tofu. 5. Garnish with sesame seeds and green onions. 6. Serve hot.",
+        "Rating": 4.6
+      },
+      {
+        "RecipeName": "Miso Eggplant",
+        "Ingredients": [
+          "Japanese eggplant",
+          "Miso paste",
+          "Mirin",
+          "Soy sauce",
+          "Sugar"
+        ],
+        "CookingMethod": "1. Slice eggplant and score the flesh. 2. Mix miso paste, mirin, soy sauce, and sugar. 3. Brush the mixture over the eggplant. 4. Bake until tender and slightly caramelized. 5. Serve hot.",
+        "Rating": 4.3
+      }
+    ]
+  }
+]

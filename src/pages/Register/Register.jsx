@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill } from "react-icons/bs";
@@ -10,6 +10,11 @@ const Register = () => {
   const { user, userProfile, createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
+
+  const navigate = useNavigate();
 
   const [show, setShow] = useState(false);
 
@@ -33,7 +38,7 @@ const Register = () => {
         })
           .then(() => {
             setSuccess("You successfuly create an account!");
-            <Navigate to={"/"}></Navigate>;
+            navigate(from ? from : "/");
           })
           .catch((error) => console.log(error.message));
 
@@ -133,7 +138,7 @@ const Register = () => {
                 Email
               </button>
 
-              <button className="text-white text-center">
+              <p className="text-white text-center">
                 Already have an Account?{" "}
                 <Link
                   className="text-[#3291ff] hover:underline"
@@ -143,7 +148,7 @@ const Register = () => {
                   {" "}
                   Please Login →
                 </Link>
-              </button>
+              </p>
             </form>
           </div>
 

@@ -6,6 +6,9 @@ import Root from "../layout/Root/Root";
 import AnimatedBackground from "../components/AnimatedBackground/AnimatedBackground";
 import Register from "../pages/Register/Register";
 import TestPage from "../pages/TestPage/TestPage";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Blog from "../pages/Blog/Blog";
+import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +18,8 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () =>
+          fetch("https://chef-server-fsikder484-gmailcom.vercel.app/chefs"),
       },
       {
         path: "/login",
@@ -23,6 +28,22 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Register></Register>,
+      },
+      {
+        path: "/chef-recipes/:id",
+        element: <ChefRecipes></ChefRecipes>,
+        loader: ({ params }) =>
+          fetch(
+            `https://chef-server-fsikder484-gmailcom.vercel.app/chefs/${params.id}`
+          ),
+      },
+      {
+        path: "/blog",
+        element: (
+          <PrivateRoute>
+            <Blog></Blog>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/exp",

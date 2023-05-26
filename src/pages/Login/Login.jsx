@@ -1,14 +1,23 @@
 import React, { useContext, useState } from "react";
-import { BsGithub } from "react-icons/bs";
+import { BsFillHouseCheckFill, BsGithub } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMailOutline, MdOutlineMarkEmailRead } from "react-icons/md";
 import googleIcon from "../../assets/img/google-icon.png";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { TiWarningOutline } from "react-icons/ti";
 
 const Login = () => {
   const { user, googleUser, gitHubUser, loginUser } = useContext(AuthContext);
+
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
+
+  const navigate = useNavigate();
+
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const [login, setLogin] = useState(false);
   const [show, setShow] = useState(false);
@@ -23,13 +32,26 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    setError("");
+    setSuccess("");
+
     loginUser(email, password)
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
-        <Navigate to={"/"}></Navigate>;
+        setSuccess("You login successful!");
+        navigate(from ? from : "/");
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        console.log(error.message);
+
+        const passMissing = error.message.includes("missing-password");
+        passMissing &&
+          setError("Password is missing! Please enter a valid Password");
+
+        const userNotFound = error.message.includes("user-not-found");
+        userNotFound && setError("User not found! Please enter a valid Email");
+      });
   };
 
   // Google pop up
@@ -38,7 +60,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
-        <Navigate to={"/"}></Navigate>;
+        navigate(from ? from : "/");
       })
       .catch((error) => console.log(error.message));
   };
@@ -49,7 +71,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
-        <Navigate to={"/"}></Navigate>;
+        navigate(from ? from : "/");
       })
       .catch((error) => console.log(error.message));
   };
@@ -60,6 +82,18 @@ const Login = () => {
         <h1 className="text-center text-5xl font-bold text-white">
           Let's connect our universe{" "}
         </h1>
+
+        {error && (
+          <div className="w-fit p-4 flex items-center gap-4 rounded text-lg font-medium bg-red-500 text-white text-center mx-auto">
+            <TiWarningOutline className="text-3xl" /> {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="w-fit p-4 rounded flex items-center gap-4 text-lg font-medium bg-green-500 text-white text-center mx-auto">
+            <BsFillHouseCheckFill className="text-3xl" /> {success}
+          </div>
+        )}
 
         {!login && (
           <div className="text-center w-7/12 flex flex-col items-center justify-center mx-auto gap-2">
@@ -85,7 +119,7 @@ const Login = () => {
 
             <button
               onClick={loginToggle}
-              className="text-[#3291ff] hover:border-b text-lg hover:border-b-[#3291ff]"
+              className="text-[#3291ff] btn-other-signup-option text-lg"
             >
               Countinue with Email →
             </button>
@@ -127,7 +161,7 @@ const Login = () => {
               </button>
               <button
                 onClick={loginToggle}
-                className="text-[#3291ff] w-fit mx-auto hover:border-b text-lg hover:border-b-[#3291ff]"
+                className="text-[#3291ff] btn-other-signup-option w-fit mx-auto "
               >
                 ← Other Sign Up Options
               </button>
@@ -138,6 +172,18 @@ const Login = () => {
           By joining, you agree to our{" "}
           <Link className="text-white hover:border-b">Terms of Service</Link>{" "}
           and <Link className="text-white hover:border-b">Privacy Policy</Link>
+        </p>
+
+        <p className="text-white text-center">
+          Dont have an Account?{" "}
+          <Link
+            className="text-[#3291ff] hover:underline"
+            style={{ TextDecoder: "underline" }}
+            to={"/signup"}
+          >
+            {" "}
+            Please Signup →
+          </Link>
         </p>
       </div>
     </div>

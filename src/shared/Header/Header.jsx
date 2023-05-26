@@ -5,13 +5,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnchor, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../assets/img/logo-dark.png";
 import shapeCurve from "../../assets/img/bg-curve.png";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import avatar from "../../assets/img/Avatar.png";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { VscSignOut } from "react-icons/vsc";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  const displayName = user?.displayName;
 
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ const Header = () => {
   const routes = [
     { path: "/", label: "Home" },
 
-    { path: "/blogs", label: "Blog" },
+    { path: "/blog", label: "Blog" },
   ];
 
   const [open, setOpen] = useState(false);
@@ -33,7 +35,9 @@ const Header = () => {
 
   const handledLogout = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        <Navigate to={"/login"}></Navigate>;
+      })
       .catch((error) => console.log(error.message));
   };
 
