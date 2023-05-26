@@ -8,9 +8,10 @@ import shapeCurve from "../../assets/img/bg-curve.png";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/img/Avatar.png";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { VscSignOut } from "react-icons/vsc";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -29,6 +30,12 @@ const Header = () => {
   const [isBg, setIsBg] = useState(false);
 
   const setHeaderBg = () => setIsBg(!isBg);
+
+  const handledLogout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error.message));
+  };
 
   return (
     <header className={`md:py-5 py-4 header relative`}>
@@ -87,16 +94,21 @@ const Header = () => {
             )}
           </div>
         ) : (
-          <div className="w-[75px] rounded-full">
-            {user?.photoURL ? (
-              <img
-                className="w-full rounded-full"
-                src={user?.photoURL}
-                alt=""
-              />
-            ) : (
-              <img className="w-full" src={avatar} alt="" />
-            )}
+          <div className=" flex items-center gap-4 rounded-full">
+            <div className="w-[75px]">
+              {user?.photoURL ? (
+                <img
+                  className="w-full rounded-full"
+                  src={user?.photoURL}
+                  alt=""
+                />
+              ) : (
+                <img className="w-full" src={avatar} alt="" />
+              )}
+            </div>
+            <button onClick={handledLogout} title="Click to Logout">
+              <VscSignOut className="text-5xl text-red-600" />
+            </button>
           </div>
         )}
       </nav>

@@ -3,7 +3,7 @@ import { BsGithub } from "react-icons/bs";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMailOutline, MdOutlineMarkEmailRead } from "react-icons/md";
 import googleIcon from "../../assets/img/google-icon.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
@@ -27,6 +27,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        <Navigate to={"/"}></Navigate>;
       })
       .catch((error) => console.log(error.message));
   };
@@ -37,6 +38,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        <Navigate to={"/"}></Navigate>;
       })
       .catch((error) => console.log(error.message));
   };
@@ -47,6 +49,7 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
         console.log(signedUser);
+        <Navigate to={"/"}></Navigate>;
       })
       .catch((error) => console.log(error.message));
   };

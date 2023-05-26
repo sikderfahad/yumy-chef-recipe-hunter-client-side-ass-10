@@ -1,15 +1,21 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { MdOutlineMarkEmailRead } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { TiWarningOutline } from "react-icons/ti";
+import { BsFillHouseCheckFill } from "react-icons/bs";
 
 const Register = () => {
   const { user, userProfile, createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
   const [show, setShow] = useState(false);
 
   const handledSignup = (event) => {
+    setError("");
+    setSuccess("");
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -25,12 +31,31 @@ const Register = () => {
           displayName: name,
           photoURL: photo,
         })
-          .then(() => {})
+          .then(() => {
+            setSuccess("You successfuly create an account!");
+            <Navigate to={"/"}></Navigate>;
+          })
           .catch((error) => console.log(error.message));
 
         console.log(createUser);
       })
-      .catch((error) => console.log(error.message));
+      .catch((error) => {
+        console.log(error.message);
+        const weakPass = error.message.includes("weak-password");
+        weakPass &&
+          setError("Weak password! Please give at least 6 characters");
+
+        const userExist = error.message.includes("email-already-in-use");
+        userExist && setError("This email already exist! Please try another");
+
+        const emailMissing = error.message.includes("email-missing");
+        emailMissing &&
+          setError("Email is missing! Please enter a valid email");
+
+        const passMissing = error.message.includes("password-missing");
+        passMissing &&
+          setError("Password is missing! Please enter a valid Password");
+      });
   };
 
   return (
@@ -39,6 +64,18 @@ const Register = () => {
         <h1 className="text-center text-5xl font-bold text-white">
           Create Yumy Account{" "}
         </h1>
+
+        {error && (
+          <div className="w-fit p-4 flex items-center gap-4 rounded text-lg font-medium bg-red-500 text-white text-center mx-auto">
+            <TiWarningOutline className="text-3xl" /> {error}
+          </div>
+        )}
+
+        {success && (
+          <div className="w-fit p-4 rounded flex items-center gap-4 text-lg font-medium bg-green-500 text-white text-center mx-auto">
+            <BsFillHouseCheckFill className="text-3xl" /> {success}
+          </div>
+        )}
 
         <div>
           <div className="w-100% w-[320px] mx-auto">
@@ -53,6 +90,7 @@ const Register = () => {
                   type="text"
                   name="name"
                   placeholder="Name"
+                  required
                 />
               </div>
               <div className="flex items-center max-w-[320px] login-box">
@@ -61,6 +99,7 @@ const Register = () => {
                   type="email"
                   name="email"
                   placeholder="Email Address"
+                  required
                 />
               </div>
               <div className="flex items-center max-w-[320px] login-box relative">
@@ -69,6 +108,7 @@ const Register = () => {
                   type={`${!show ? "password" : "text"}`}
                   name="password"
                   placeholder="Password"
+                  required
                 />
                 <span
                   className="absolute text-white text-xl p-3 right-0 cursor-pointer"
@@ -84,6 +124,7 @@ const Register = () => {
                   type="text"
                   name="photo"
                   placeholder="Photo url"
+                  required
                 />
               </div>
 
