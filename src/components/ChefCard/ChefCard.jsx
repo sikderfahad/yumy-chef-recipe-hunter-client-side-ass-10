@@ -20,7 +20,7 @@ const ChefCard = ({ chef }) => {
   const handledLike = () => {
     setLike(!like);
   };
-  console.log(like);
+  // console.log(like);
 
   return (
     <div>
@@ -42,7 +42,7 @@ const ChefCard = ({ chef }) => {
           </p>
           <div className="flex justify-between">
             <span className="text-blue-600 flex items-center gap-2 text-lg">
-              <span onClick={handledLike}>
+              <span className="cursor-pointer" onClick={handledLike}>
                 {!like ? (
                   <BiLike className="text-xl" />
                 ) : (

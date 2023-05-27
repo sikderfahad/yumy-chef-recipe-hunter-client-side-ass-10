@@ -1,0 +1,29 @@
+.sec-head h6 {
+  color: #b7b095;
+  font-weight: 300;
+  font-size: 17px;
+  text-transform: uppercase;
+  letter-spacing: 14px;
+  margin-bottom: 5px;
+}
+
+.sec-head h3 {
+  font-size: 60px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.tbg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 10vw;
+  opacity: 0.05;
+}
+
+.sec-head {
+  position: relative;
+  margin: 0 auto 80px;
+}

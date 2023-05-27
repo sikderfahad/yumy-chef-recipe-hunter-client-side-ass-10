@@ -2,10 +2,11 @@ import React from "react";
 import Banner from "../../components/Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import ChefCard from "../../components/ChefCard/ChefCard";
+import ModernPart from "../../components/ModernPart/ModernPart";
+import Services from "../../components/Services/Services";
 
 const Home = () => {
   const chefs = useLoaderData();
-  console.log(chefs);
   return (
     <div>
       <Banner></Banner>
@@ -14,6 +15,9 @@ const Home = () => {
           <ChefCard key={chef.id} chef={chef}></ChefCard>
         ))}
       </div>
+
+      <ModernPart></ModernPart>
+      <Services></Services>
     </div>
   );
 };

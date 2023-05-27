@@ -11,9 +11,12 @@ const ChefRecipes = () => {
   const chefInfo = useLoaderData();
   const [like, setLike] = useState(false);
 
+  const [isDisable, setIsDisable] = useState(false);
+
   const addToFavourite = () => {
-    setLike(!like);
+    setLike(true);
     !like && ToastMsgSuc("This Chef added to your Favourite list!");
+    setIsDisable(true);
   };
 
   const {
@@ -27,7 +30,7 @@ const ChefRecipes = () => {
     Recipes,
   } = chefInfo;
 
-  console.log(chefInfo);
+  // console.log(chefInfo);
 
   return (
     <div className="bg-[black] py-[150px]">
@@ -73,7 +76,7 @@ const ChefRecipes = () => {
           </div>
 
           <div className="mt-4 mx-auto">
-            <h3 className="text-lg recipe-title leading-6 font-medium text-gray-900">
+            <h3 className="text-4xl text-center my-6 font-bold text-blue-500 animate-pulse  recipe-title leading-6 ">
               Recipes
             </h3>
             <table className="w-full mt-2">
@@ -121,6 +124,7 @@ const ChefRecipes = () => {
             <button
               onClick={addToFavourite}
               className="mt-4 flex items-center gap-2"
+              disabled={isDisable}
             >
               Favourite
               <MdFavoriteBorder

@@ -4,7 +4,6 @@ import Login from "../pages/Login/Login";
 import ErrorPage from "../components/ErrorPage/ErrorPage";
 import Root from "../layout/Root/Root";
 import Register from "../pages/Register/Register";
-import TestPage from "../pages/TestPage/TestPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Blog from "../pages/Blog/Blog";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
@@ -48,10 +47,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/exp",
-        element: <TestPage></TestPage>,
-      },
+
       {
         path: "*",
         element: <ErrorPage></ErrorPage>,

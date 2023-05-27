@@ -40,10 +40,10 @@ const Login = () => {
       .then((res) => {
         const signedUser = res.user;
 
-        ToastMsgSuc("Your login successful!");
+        signedUser && ToastMsgSuc("Your login successful!");
 
+        signedUser && setSuccess("You login successful!");
         console.log(signedUser);
-        setSuccess("You login successful!");
         navigate(from ? from : "/");
       })
       .catch((error) => {
@@ -52,11 +52,15 @@ const Login = () => {
         const passMissing = error.message.includes("missing-password");
         passMissing &&
           setError("Password is missing! Please enter a valid Password");
-        ToastMsgError("Password is missing!");
+        passMissing && ToastMsgError("Password is missing!");
 
         const userNotFound = error.message.includes("user-not-found");
         userNotFound && setError("User not found! Please enter a valid Email");
-        ToastMsgSuc("Your login successful!");
+        userNotFound && ToastMsgError("User not found! ");
+
+        const invalidEmail = error.message.includes("invalid-email");
+        invalidEmail && setError("Invalid Email! Please enter a valid Email");
+        invalidEmail && ToastMsgError("Invalid Email! ");
       });
   };
 
@@ -147,6 +151,7 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Email Address"
+                  required
                 />
               </div>
               <div className="flex items-center max-w-[320px] login-box relative">
@@ -155,6 +160,7 @@ const Login = () => {
                   type={`${!show ? "password" : "text"}`}
                   name="password"
                   placeholder="Password"
+                  required
                 />
                 <span
                   className="absolute text-white text-xl p-3 right-0 cursor-pointer"
