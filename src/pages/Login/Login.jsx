@@ -61,6 +61,10 @@ const Login = () => {
         const invalidEmail = error.message.includes("invalid-email");
         invalidEmail && setError("Invalid Email! Please enter a valid Email");
         invalidEmail && ToastMsgError("Invalid Email! ");
+
+        const wrongPassword = error.message.includes("wrong-password");
+        wrongPassword && setError("Wrong Password! Please try again");
+        wrongPassword && ToastMsgError("Wrong Password!");
       });
   };
 
