@@ -1,0 +1,14 @@
+.blog-item {
+  position: relative;
+  animation: BlogAnimate 1s ease-in 0s 1;
+  z-index: -99;
+}
+
+@keyframes BlogAnimate {
+  0% {
+    left: -50rem;
+  }
+  100% {
+    left: 0;
+  }
+}
