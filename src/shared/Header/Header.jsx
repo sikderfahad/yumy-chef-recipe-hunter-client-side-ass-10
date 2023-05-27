@@ -113,10 +113,10 @@ const Header = () => {
               className="w-[150px] h-[80px] flex items-center justify-center duration-200"
             >
               {!isHover ? (
-                <div className="w-[75px] duration-200">
+                <div className=" duration-200">
                   {user?.photoURL ? (
                     <img
-                      className="w-full duration-200 rounded-full"
+                      className="w-[75px] h-[75px] duration-200 rounded-full"
                       src={user?.photoURL}
                       alt=""
                     />
