@@ -13,7 +13,15 @@ import { VscSignOut } from "react-icons/vsc";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
-  const displayName = user?.displayName;
+  const [isHover, setIsHover] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
 
   const navigate = useNavigate();
 
@@ -99,15 +107,27 @@ const Header = () => {
           </div>
         ) : (
           <div className=" flex items-center gap-4 rounded-full">
-            <div className="w-[75px]">
-              {user?.photoURL ? (
-                <img
-                  className="w-full rounded-full"
-                  src={user?.photoURL}
-                  alt=""
-                />
+            <div
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              className="w-[150px] h-[80px] flex items-center justify-center duration-200"
+            >
+              {!isHover ? (
+                <div className="w-[75px] duration-200">
+                  {user?.photoURL ? (
+                    <img
+                      className="w-full duration-200 rounded-full"
+                      src={user?.photoURL}
+                      alt=""
+                    />
+                  ) : (
+                    <img className="w-full duration-200" src={avatar} alt="" />
+                  )}
+                </div>
               ) : (
-                <img className="w-full" src={avatar} alt="" />
+                <h1 className="gradient-title duration-200 text-xl font-semibold">
+                  {user?.displayName && user.displayName}
+                </h1>
               )}
             </div>
             <button onClick={handledLogout} title="Click to Logout">
