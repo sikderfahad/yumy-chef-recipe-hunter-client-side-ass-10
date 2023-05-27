@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { BiLike } from "react-icons/bi";
 import { AiTwotoneLike } from "react-icons/ai";
 import "./ChefCard.css";
+import LazyLoad from "react-lazy-load";
+import Spinner from "../Spinner/Spinner";
 
 const ChefCard = ({ chef }) => {
   const {
@@ -25,11 +27,13 @@ const ChefCard = ({ chef }) => {
   return (
     <div>
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <img
-          className="rounded-t-lg w-full h-[250px]"
-          src={ChefPicture}
-          alt=""
-        />
+        <LazyLoad placeholder={<Spinner></Spinner>}>
+          <img
+            className="rounded-t-lg w-full h-[250px]"
+            src={ChefPicture}
+            alt=""
+          />
+        </LazyLoad>
 
         <div className="px-6 py-4">
           <h4 className="text-xl font-bold mb-2">{ChefName}</h4>

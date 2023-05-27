@@ -7,7 +7,6 @@ import Register from "../pages/Register/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ChefRecipes from "../pages/ChefRecipes/ChefRecipes";
 import BlogPage from "../pages/Blog/BlogPage";
-import Test from "../pages/Test/Test";
 
 const router = createBrowserRouter([
   {
@@ -43,10 +42,6 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <BlogPage></BlogPage>,
-      },
-      {
-        path: "/test",
-        element: <Test></Test>,
       },
 
       {

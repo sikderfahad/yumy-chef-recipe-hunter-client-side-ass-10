@@ -6,6 +6,8 @@ import { FaAward, FaRegStar, FaStar } from "react-icons/fa";
 import Rating from "react-rating";
 import { MdFavoriteBorder } from "react-icons/md";
 import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
+import LazyLoad from "react-lazy-load";
+import Spinner from "../../components/Spinner/Spinner";
 
 const ChefRecipes = () => {
   const chefInfo = useLoaderData();
@@ -38,11 +40,13 @@ const ChefRecipes = () => {
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-4xl p-5">
           <div className="md:flex">
             <div className="md:flex-shrink-0">
-              <img
-                className="h-48 w-full object-cover md:w-48"
-                src={ChefPicture}
-                alt={ChefName}
-              />
+              <LazyLoad placeholder={<Spinner></Spinner>}>
+                <img
+                  className="h-48 w-full object-cover md:w-48"
+                  src={ChefPicture}
+                  alt={ChefName}
+                />
+              </LazyLoad>
             </div>
             <div className="p-8">
               <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
