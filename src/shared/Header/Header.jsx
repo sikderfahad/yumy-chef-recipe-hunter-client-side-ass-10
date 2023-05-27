@@ -16,7 +16,7 @@ const Header = () => {
   const [isHover, setIsHover] = useState(false);
 
   const handleMouseEnter = () => {
-    setIsHover(true);
+    user?.displayName && setIsHover(true);
   };
 
   const handleMouseLeave = () => {
