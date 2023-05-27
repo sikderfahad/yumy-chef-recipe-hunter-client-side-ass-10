@@ -1,6 +1,7 @@
 import React from "react";
 import "./BlogPage.css";
 import BlogItem from "../BlogItem/BlogItem";
+import { PDFDownloadButton } from "../../components/PDF/PdfComponent";
 // import BlogItem from "../BlogItem/BlogItem";
 
 const BlogPage = () => {
@@ -23,12 +24,18 @@ const BlogPage = () => {
       body: "A custom hook in React is a reusable function that allows you to encapsulate and share logic between components. It is created by prefixing the function name with 'use' and follows a specific naming convention. Custom hooks are useful for promoting code reusability, abstracting complex logic, separating concerns, facilitating testing and debugging, and leveraging React's features. They help improve code organization, maintainability, and modularity in React applications.",
     },
   ];
+
   return (
     <div className="overflow-hidden bg-black py-[100px]">
-      <div className="md:w-10/12 w-11/12 mx-auto grid relative z-10 grid-cols-1 md:grid-cols-2 gap-10 my-8">
-        {blogs.map((blog, idx) => (
-          <BlogItem blog={blog} key={idx}></BlogItem>
-        ))}
+      <div className="md:w-10/12 w-11/12 mx-auto">
+        <div className="text-right">
+          <PDFDownloadButton />
+        </div>
+        <div className=" grid relative z-10 grid-cols-1 md:grid-cols-2 gap-10 my-8">
+          {blogs.map((blog, idx) => (
+            <BlogItem blog={blog} key={idx}></BlogItem>
+          ))}
+        </div>
       </div>
     </div>
   );
