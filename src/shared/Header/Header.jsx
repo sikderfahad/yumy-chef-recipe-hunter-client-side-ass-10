@@ -121,7 +121,11 @@ const Header = () => {
                       alt=""
                     />
                   ) : (
-                    <img className="w-full duration-200" src={avatar} alt="" />
+                    <img
+                      className="w-[75px] h-[75px] duration-200"
+                      src={avatar}
+                      alt=""
+                    />
                   )}
                 </div>
               ) : (

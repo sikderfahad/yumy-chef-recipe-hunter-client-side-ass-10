@@ -131,7 +131,6 @@ const Register = () => {
                   type="text"
                   name="photo"
                   placeholder="Photo url"
-                  required
                 />
               </div>
 
