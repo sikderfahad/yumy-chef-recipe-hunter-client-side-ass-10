@@ -6,8 +6,11 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { TiWarningOutline } from "react-icons/ti";
 import { BsFillHouseCheckFill } from "react-icons/bs";
 import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const Register = () => {
+  useTitle("Sign up");
+
   const { user, userProfile, createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");

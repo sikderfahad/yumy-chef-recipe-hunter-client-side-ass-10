@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 import footerLogo from "../../assets/img/logo-light.png";
 import { FaFacebookF, FaInstagram, FaTiktok, FaTwitter } from "react-icons/fa";

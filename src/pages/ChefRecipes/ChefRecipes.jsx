@@ -8,8 +8,11 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { ToastMsgSuc } from "../../components/Toast/ToastMsg";
 import LazyLoad from "react-lazy-load";
 import Spinner from "../../components/Spinner/Spinner";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const ChefRecipes = () => {
+  useTitle("Chef about");
+
   const chefInfo = useLoaderData();
   const [like, setLike] = useState(false);
 

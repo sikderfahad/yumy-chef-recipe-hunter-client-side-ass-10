@@ -51,18 +51,22 @@ const Header = () => {
 
   return (
     <header className={`md:py-5 py-4 header relative`}>
-      <nav className="md:w-10/12 w-11/12 mx-auto flex items-center justify-between">
+      <nav
+        className={`md:w-10/12 w-11/12 mx-auto  ${
+          user ? "grid md:grid-cols-3 gap-5 grid-cols-2" : "flex"
+        } items-center justify-between`}
+      >
         <div className="logo">
           <img className="w-[100px] md:w-auto" src={logo} alt="" />
         </div>
         <div className="mebubar">
           <div
-            className="lg:hidden"
+            className={`lg:hidden ${user ? "text-right" : "text-center"}`}
             onMouseEnter={() => setOpen(!open)}
             onMouseLeave={() => setOpen(!open)}
             onClick={() => setOpen(!open)}
           >
-            <span className="text-2xl">
+            <span className="text-2xl inline">
               {open ? (
                 <FontAwesomeIcon icon={faAnchor}></FontAwesomeIcon>
               ) : (
@@ -71,8 +75,8 @@ const Header = () => {
             </span>
           </div>
           <ul
-            className={`lg:static  z-[999] absolute right-0 ${
-              open ? "top-20 md:top-12" : "-top-96"
+            className={`lg:static text-center  z-[999] absolute right-0 ${
+              open ? "top-24 md:top-12" : "-top-96"
             }  lg:bg-transparent bg-gray-200 p-4 rounded-md duration-200`}
           >
             {routes.map((route, idx) => (
@@ -106,7 +110,7 @@ const Header = () => {
             )}
           </div>
         ) : (
-          <div className=" flex items-center gap-4 rounded-full">
+          <div className={`flex items-center gap-4 ${user && "mx-auto"}`}>
             <div
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}

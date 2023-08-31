@@ -2,9 +2,11 @@ import React from "react";
 import "./BlogPage.css";
 import BlogItem from "../BlogItem/BlogItem";
 import { PDFDownloadButton } from "../../components/PDF/PdfComponent";
-// import BlogItem from "../BlogItem/BlogItem";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const BlogPage = () => {
+  useTitle("Blog");
+
   const blogs = [
     {
       title:

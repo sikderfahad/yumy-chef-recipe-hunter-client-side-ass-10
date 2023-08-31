@@ -1,4 +1,3 @@
-import React from "react";
 import "./Banner.css";
 import shapeCurve from "../../assets/img/bg-curve.png";
 

@@ -8,8 +8,11 @@ import "./Login.css";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { TiWarningOutline } from "react-icons/ti";
 import { ToastMsgError, ToastMsgSuc } from "../../components/Toast/ToastMsg";
+import useTitle from "../../Custom/UseTitle/useTitle";
 
 const Login = () => {
+  useTitle("Login");
+
   const { user, googleUser, gitHubUser, loginUser } = useContext(AuthContext);
 
   const location = useLocation();
@@ -65,6 +68,10 @@ const Login = () => {
         const wrongPassword = error.message.includes("wrong-password");
         wrongPassword && setError("Wrong Password! Please try again");
         wrongPassword && ToastMsgError("Wrong Password!");
+
+        const networkFaild = error.message.includes("network-request-faild");
+        networkFaild && setError("No Internet! Please check your connectivity");
+        networkFaild && ToastMsgError("No Internet!");
       });
   };
 

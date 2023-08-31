@@ -1,4 +1,3 @@
-import React from "react";
 import cooking from "../../assets/img/cooking.png";
 import cook from "../../assets/img/cook.png";
 import chef from "../../assets/img/chef.png";

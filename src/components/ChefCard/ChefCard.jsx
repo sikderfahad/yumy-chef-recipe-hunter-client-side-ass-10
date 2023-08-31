@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BiLike } from "react-icons/bi";
 import { AiTwotoneLike } from "react-icons/ai";
@@ -11,7 +11,7 @@ const ChefCard = ({ chef }) => {
     id,
     ChefName,
     ChefPicture,
-    Bio,
+    // Bio,
     Likes,
     NumberOfRecipes,
     YearsOfExperience,
