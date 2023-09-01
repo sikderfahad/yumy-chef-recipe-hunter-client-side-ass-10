@@ -6,6 +6,7 @@ import Services from "../../components/Services/Services";
 import LazyLoad from "react-lazy-load";
 import useTitle from "../../Custom/UseTitle/useTitle";
 import IntroPart from "../../components/IntroPart/IntroPart";
+import Staff from "../../components/Staff/Staff";
 
 const Home = () => {
   const chefs = useLoaderData();
@@ -28,6 +29,7 @@ const Home = () => {
 
       <ModernPart></ModernPart>
       <Services></Services>
+      <Staff></Staff>
     </div>
   );
 };

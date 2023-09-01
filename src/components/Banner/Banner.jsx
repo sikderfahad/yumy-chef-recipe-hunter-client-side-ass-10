@@ -5,7 +5,7 @@ const Banner = () => {
   return (
     <div className={`w-full banner `}>
       <div className="md:w-8/12 mx-auto content-container text-center relative top-9 md:top-28">
-        <h1 className="text-3xl md:text-7xl md:font-extrabold font-bold">
+        <h1 className="text-3xl md:text-7xl md:font-extrabold font-bold py-3">
           Tasty Food
         </h1>
         <h2 className="text-white text-4xl md:text-6xl my-8">

@@ -1,0 +1,36 @@
+.cutlery::before,
+.cutlery::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 1px;
+  background: #999;
+  /* background: red; */
+  top: 50%;
+  right: -100px;
+  opacity: 0.5;
+}
+
+.cutlery::after {
+  right: auto;
+  left: -100px;
+}
+.ftr-img::after,
+.ftr-img::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid #b7b095;
+  opacity: 0.7;
+  z-index: 3;
+}
+
+.ftr-img::before {
+  top: 25px;
+  left: 15px;
+  right: 15px;
+  bottom: 25px;
+}
